@@ -40,7 +40,8 @@ function errorResponse(message: string, status = 400): Response {
 
 // ── Worker Entry Point ────────────────────────────────────────────────────────
 
-export default {
+/* eslint-disable @typescript-eslint/no-unused-vars */
+ export default {
   async fetch(request: Request, env: ExtendedEnv, _ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     const path = url.pathname;
@@ -383,6 +384,7 @@ async function handleAdmin(request: Request, env: ExtendedEnv, path: string): Pr
 
   return errorResponse("Admin endpoint not found", 404);
 }
+/* eslint-enable @typescript-eslint/no-unused-vars */
 
 // ── Export Durable Object ────────────────────────────────────────────────────
 

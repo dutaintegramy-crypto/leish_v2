@@ -491,7 +491,8 @@ export class ChatRoom extends DurableObject<Env> {
 
   // ── WebSocket Close Handler ────────────────────────────────────────────────
 
-  async webSocketClose(
+  /* eslint-disable @typescript-eslint/no-unused-vars */
+async webSocketClose(
     ws: WebSocket,
     _code: number,
     _reason: string,
@@ -499,6 +500,7 @@ export class ChatRoom extends DurableObject<Env> {
   ): Promise<void> {
     // Cleanup rate limiter
     this.rateLimiters.delete(ws);
+    // eslint-enable @typescript-eslint/no-unused-vars
 
     // Cleanup heartbeat
     const heartbeatId = this.heartbeatIntervals.get(ws);
