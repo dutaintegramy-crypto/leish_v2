@@ -492,7 +492,7 @@ export class ChatRoom extends DurableObject<Env> {
   // ── WebSocket Close Handler ────────────────────────────────────────────────
 
   /* eslint-disable @typescript-eslint/no-unused-vars */
-async webSocketClose(
+  async webSocketClose(
     ws: WebSocket,
     _code: number,
     _reason: string,

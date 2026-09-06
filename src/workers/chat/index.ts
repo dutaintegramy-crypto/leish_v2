@@ -41,7 +41,7 @@ function errorResponse(message: string, status = 400): Response {
 // ── Worker Entry Point ────────────────────────────────────────────────────────
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
- export default {
+export default {
   async fetch(request: Request, env: ExtendedEnv, _ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     const path = url.pathname;
