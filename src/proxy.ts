@@ -1,17 +1,17 @@
-import { NextResponse, type NextRequest } from "next/server";
-
 /**
  * Per-request Content-Security-Policy (Next.js 16 "proxy" convention,
  * formerly "middleware") with a one-time nonce.
  *
  * - The nonce is forwarded to the root layout via the `x-nonce` request
  *   header, which applies it to inline <script> tags (e.g. the theme
-   bootstrap script) so script-src can omit 'unsafe-inline'.
+ *   bootstrap script) so script-src can omit 'unsafe-inline'.
  * - Next.js picks the nonce out of the CSP request header and applies it to
  *   its own hydration/bootstrap scripts automatically.
  * - API routes and static assets are excluded from the matcher: they don't
  *   render HTML, and excluding them keeps the nonce unique per document.
  */
+import { NextResponse, type NextRequest } from "next/server";
+
 export function proxy(request: NextRequest) {
   const nonce = btoa(crypto.randomUUID());
   const isDev = process.env.NODE_ENV !== "production";
